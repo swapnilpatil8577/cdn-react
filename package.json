@@ -1,0 +1,29 @@
+{
+  "name": "react-learning-app",
+  "version": "1.0.0",
+  "description": "This is react learning application",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swapnilpatil8577/react-learning-app.git"
+  },
+  "author": "Swapnil Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swapnilpatil8577/react-learning-app/issues"
+  },
+  "homepage": "https://github.com/swapnilpatil8577/react-learning-app#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
