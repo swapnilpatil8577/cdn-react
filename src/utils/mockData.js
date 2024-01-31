@@ -1,58 +1,3 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-
-// const heading = React.createElement('h1', {id:'heading', xyz:'abc'}, "Hello World from React!")
-
-// const parent = React.createElement(
-//     'div',
-//     {id:'parent'},
-//     [
-//         React.createElement('div', {id:'child'}, [
-//             React.createElement('h1', {}, 'Hi I am an nested html heading!!'),
-//             React.createElement('h2', {}, 'Hi I am an nested html h2 heading!!')
-//         ]),
-//         React.createElement('div', {id:'child2'}, [
-//             React.createElement('h1', {}, 'Hi I am an nested html heading!!'),
-//             React.createElement('h2', {}, 'Hi I am an nested html h2 heading!!')
-//         ])
-//     ]
-// )
-
-// console.log(parent)
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"></img>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-
-        </div>
-    )
-}
-
-const RestaurantCard = (props) => {
-    const {resData} = props
-    const {name, cloudinaryImageId, cuisines, avgRating, costForTwo } = resData
-    return (
-        <div className="res-card" style={{background:"#f0f0f0"}}>
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
-            <h3>{name}</h3>
-            <h4>{cuisines.join(",")}</h4>
-            <h4>{avgRating} Stars</h4>
-            <h4>{costForTwo}</h4>
-            <h4>38 Minutes</h4>
-        </div>
-    )
-}
-
 const restListObj = [
     {
         "info": {
@@ -748,25 +693,4 @@ const restListObj = [
     }
 ]
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {restListObj.map((restaurant) => (<RestaurantCard key={restaurant.info.id} resData={restaurant.info}/>))}
-            </div>
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<AppLayout/>)
+export default restListObj;
