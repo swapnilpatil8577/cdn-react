@@ -1,8 +1,9 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([])
@@ -10,12 +11,16 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState("")
 
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
+
     const onlineStatus = useOnlineStatus()
     if (onlineStatus == false) {
         return (
             <h1>Looks like you are Offline!! Please check your Internet connection.</h1>
         )
     }
+
+    const {isLoggedInUser, setUserName} = useContext(UserContext)
 
     useEffect(()=> {
         fetchData()
@@ -55,10 +60,16 @@ const Body = () => {
                         }}
                     >Top Rated Restaurants</button>                    
                 </div>
+                <div className="m-4 p-4 flex items-center">
+                    <label>User Name : </label>
+                    <input className="m-4 border border-solid border-black" value={isLoggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
+                </div>
 
             </div>
             <div className="flex flex-wrap">
-                {filteredRestaurants.map((restaurant) => (<Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}><RestaurantCard resData={restaurant.info}/></Link>))}
+                {filteredRestaurants.map((restaurant) => (<Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
+                    {restaurant.info.aggregatedDiscountInfoV3 ? <RestaurantCardPromoted resData={restaurant.info}/> : <RestaurantCard resData={restaurant.info}/>}
+                    </Link>))}
             </div>
         </div>
     )
