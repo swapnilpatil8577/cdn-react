@@ -41,3 +41,12 @@ Two types of Export and Import
   - Second ComponentDidMount Call
 
 - Parent ComponentDidMount Call
+
+# Redux Toolkit
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app.
+- Create a Cart Slice
+- dispatch(action)
+- Selector
