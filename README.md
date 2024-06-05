@@ -50,3 +50,26 @@ Two types of Export and Import
 - Create a Cart Slice
 - dispatch(action)
 - Selector
+
+# Types of testing(developer)
+
+- Unit Testing - Test your react component in isolation or testing small specific unit of react application.
+
+- Integration Testing - Testing the integration of the many react components.
+
+- End to End Testing - e2e Testing
+  - Testing a react application as soon as user lands on the website to the user leaves the website, will test all the different types of test.
+  - It will test how the user will flow accross the application.
+
+# Setting up Testing
+
+- Install React Testing Liabrary
+- Install Jest
+- Install Babel Dependencies
+- Configure Babel
+- Configure Parcel Config file to disable default bable transpilation.
+- Jest Configuration - npx jest --init
+- Install Jest Environment JSDOM/ jsdom liabrary
+- Install @babel/preset-react to make JSX work in test cases.
+- Include @babel/preset-react inside my babel config.
+- Install @testing-library/jest-dom liabrary
